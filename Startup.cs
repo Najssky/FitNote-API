@@ -8,6 +8,7 @@ using FitNote_API.Data.Database;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -87,12 +88,18 @@ namespace FitNote_API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppDbContext context)
         {
+            app.UseCors();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedProto
+            });
             app.UseOpenApi(options =>
             {
                 options.DocumentName = "swagger";
@@ -101,14 +108,11 @@ namespace FitNote_API
             });
 
             app.UseSwaggerUi3(options => options.DocumentPath = "/swagger/v1/swagger.json");
-
-
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
+            app.UseHttpsRedirection();
             app.UseAuthorization();
-
+            DatabaseSeeder.SeedData(context);
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
