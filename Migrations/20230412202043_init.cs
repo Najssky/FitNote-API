@@ -17,6 +17,7 @@ namespace FitNote_API.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Lastname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone_number = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Token = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>

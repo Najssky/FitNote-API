@@ -40,6 +40,9 @@ namespace FitNote_API.Migrations
                     b.Property<string>("Phone_number")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("Token")
                         .HasColumnType("uniqueidentifier");
 

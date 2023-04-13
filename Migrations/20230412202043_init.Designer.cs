@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitNote_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230305120201_init")]
+    [Migration("20230412202043_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,9 @@ namespace FitNote_API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone_number")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("Token")

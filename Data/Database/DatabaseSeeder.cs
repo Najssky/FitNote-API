@@ -22,7 +22,8 @@ namespace FitNote_API.Data.Database
                     Name = "Admin",
                     Lastname = "Admin",
                     Token = Guid.Empty,
-                    Phone_number = "123456789"
+                    Phone_number = "123456789",
+                    Role = "Admin",
 
                 });
                 context.SaveChangesAsync().Wait();
