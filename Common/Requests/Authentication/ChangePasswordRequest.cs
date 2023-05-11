@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FitNote_API.Common.Requests
+namespace FitNote_API.Common.Requests.Authentication
 {
     public class ChangePasswordRequest
     {

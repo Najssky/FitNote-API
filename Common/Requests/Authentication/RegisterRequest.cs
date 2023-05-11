@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FitNote_API.Common.Requests
+namespace FitNote_API.Common.Requests.Authentication
 {
     public class RegisterRequest : LoginRequest
     {

@@ -19,6 +19,40 @@ namespace FitNote_API.Migrations
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("FitNote_API.Data.Models.Exercise", b =>
+                {
+                    b.Property<Guid>("Exercise_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Exercise_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Exercise_id");
+
+                    b.ToTable("Exercises");
+                });
+
+            modelBuilder.Entity("FitNote_API.Data.Models.Training", b =>
+                {
+                    b.Property<Guid>("Training_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Training_date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Training_details")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("Training_user_id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Training_id");
+
+                    b.ToTable("Trainings");
+                });
+
             modelBuilder.Entity("FitNote_API.Data.Models.User", b =>
                 {
                     b.Property<Guid>("User_id")

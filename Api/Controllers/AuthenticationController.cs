@@ -1,7 +1,7 @@
 ﻿using FitNote_API.Api.Responses.Factories;
 using FitNote_API.Api.Responses.Wrappers;
 using FitNote_API.Common.Jwt;
-using FitNote_API.Common.Requests;
+using FitNote_API.Common.Requests.Authentication;
 using FitNote_API.Core.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

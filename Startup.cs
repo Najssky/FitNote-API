@@ -37,9 +37,18 @@ namespace FitNote_API
 
         public IConfiguration Configuration { get; }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+                    });
+            });
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
             var appSettings = appSettingsSection.Get<AppSettings>();
@@ -47,6 +56,8 @@ namespace FitNote_API
             services.AddAutoMapper(typeof(AutoMapping));
             services.AddHttpContextAccessor();
             services.AddScoped<IUsers, UserRepository>();
+            services.AddScoped<ITrainings, TrainingRepository>();
+            services.AddScoped<IExercises, ExerciseRepository>();
             services.AddScoped<IAuthentication, AuthenticationRepository>();
             services.AddScoped<IJwtHelper, JwtHelper>();
             services.AddScoped<IApiResponseFactory, ApiResponseFactory>();

@@ -1,5 +1,5 @@
 ﻿using FitNote_API.Common.Jwt;
-using FitNote_API.Common.Requests;
+using FitNote_API.Common.Requests.Authentication;
 using System;
 using System.Threading.Tasks;
 

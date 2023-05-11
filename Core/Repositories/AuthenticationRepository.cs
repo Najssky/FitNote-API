@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Net;
 using System;
-using FitNote_API.Common.Requests;
 using AutoMapper;
 using FitNote_API.Core.Dtos.User;
 using System.Threading.Tasks;
 using FitNote_API.Data.Database;
+using FitNote_API.Common.Requests.Authentication;
 
 namespace FitNote_API.Core.Repositories
 {
