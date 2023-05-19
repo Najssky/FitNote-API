@@ -56,6 +56,11 @@ namespace FitNote_API.Api.Controllers
         {
             return await _trainingRepository.GetByUserId(Training_user_id);
         }
+        [HttpGet("byUserIdAndDate/{Training_user_id}")]
+        public async Task<IEnumerable<TrainingDto>> GetByUserIdAndDate(Guid Training_user_id, DateTime Training_date)
+        {
+            return await _trainingRepository.GetByUserIdAndDate(Training_user_id, Training_date);
+        }
         [HttpDelete("{Training_id}")]
         public async Task<bool> Delete(Guid Training_id)
         {

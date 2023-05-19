@@ -9,6 +9,7 @@ using System;
 using FitNote_API.Core.Interfaces;
 using System.Linq;
 using FitNote_API.Common.Requests.TrainingRequests;
+using Newtonsoft.Json;
 
 namespace FitNote_API.Core.Repositories
 {
@@ -48,7 +49,11 @@ namespace FitNote_API.Core.Repositories
         {
             return await _context.Trainings.Where(x => x.Training_user_id == Training_user_id).Select(training => _mapper.Map<Training, TrainingDto>(training)).ToListAsync();
         }
-            public async Task<IEnumerable<TrainingDto>> GetById(Guid Training_id)
+        public async Task<IEnumerable<TrainingDto>> GetByUserIdAndDate(Guid Training_user_id, DateTime Training_date)
+        {
+            return await _context.Trainings.Where(x => x.Training_user_id == Training_user_id && x.Training_date == Training_date).Select(training => _mapper.Map<Training, TrainingDto>(training)).ToListAsync();
+        }
+        public async Task<IEnumerable<TrainingDto>> GetById(Guid Training_id)
         {
             return await _context.Trainings.Where(x => x.Training_id == Training_id).Select(training => _mapper.Map<Training, TrainingDto>(training)).ToListAsync();
         }
