@@ -13,11 +13,11 @@ namespace FitNote_API.Core.Interfaces
         Task<IEnumerable<TrainingDto>> GetById(Guid Training_id);
         Task<Training> Get(Guid Training_id);
         Task<IEnumerable<TrainingDto>> GetByUserId(Guid Training_user_id);
-        Task<IEnumerable<TrainingDto>> GetByUserIdAndDate(Guid Training_user_id, DateTime Training_date);
         Task Update(Training training);
 
         Task Delete(Guid Training_id);
         Task<IEnumerable<TrainingDto>> Get();
         Task<TrainingDto> Create(TrainingAddRequest training);
+        Task<IEnumerable<TrainingDto>> GetByUserIdAndDate(Guid training_user_id, DateTime training_date);
     }
 }
