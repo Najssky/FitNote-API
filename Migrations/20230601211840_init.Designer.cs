@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitNote_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230509175943_init")]
+    [Migration("20230601211840_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

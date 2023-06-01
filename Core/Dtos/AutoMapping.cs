@@ -14,6 +14,7 @@ namespace FitNote_API.Core.Dtos
             CreateMap<Data.Models.User, UserDto>();
             CreateMap<string, Guid>();
             CreateMap<Data.Models.Training, TrainingDto>();
+            CreateMap<TrainingDto, Data.Models.Training>();
             CreateMap<TrainingAddRequest, Data.Models.Training>();
             CreateMap<Data.Models.Exercise, ExerciseDto>();
             CreateMap<ExerciseAddRequest, Data.Models.Exercise>();
