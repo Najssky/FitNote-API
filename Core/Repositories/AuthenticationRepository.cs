@@ -62,6 +62,7 @@ namespace FitNote_API.Core.Repositories
                     Name = request.Name,
                     Lastname = request.Lastname,
                     Phone_number = request.Phone_number,
+                    Role = "User",
                     Token = Guid.Empty,
                 }).ConfigureAwait(false);
 

@@ -46,7 +46,7 @@ namespace FitNote_API
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+                        builder.WithOrigins("https://najssky.github.io","http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials();
                     });
             });
             var appSettingsSection = Configuration.GetSection("AppSettings");
